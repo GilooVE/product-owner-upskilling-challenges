@@ -9,3 +9,4 @@ categories = categories.sort
 categories.each do |category|
  puts "- #{category}"
 end
+puts "Total: #{categories.count}"
