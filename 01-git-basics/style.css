@@ -1,1 +1,14 @@
 /* Add any styling you want */
+body{
+	background-color: rgb(245,245,245);
+	color: rgb(30,30,30);
+	font-family: 'Lora', serif;
+	font-size: 17px;
+	font-weight: lighter;
+}
+h1, h2 {
+	font-family: 'Roboto', sans-serif;
+}
+.img-circle {
+    border-radius: 50%
+}
