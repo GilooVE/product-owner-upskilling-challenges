@@ -8,18 +8,21 @@
     <%= stylesheet '/style.css' %>
   </head>
   <body>
-    <h1>Activities</h1>
-      <% @activities.each do |activity| %>
 
-    <h2> <%= activity["name"] %>
-        <p><%= activity["category"] %></p>
-        <p><%= activity["city"] %></p>
-        <p><%= activity["duration"] %></p>
-        <p><%= activity["number of participants"] %></p>
-        <p><%= activity["price (in EUR)"] %></p>
+     <h1>Activities</h1>
+     <% @activities.each do |activity| %>
 
+        <div class = "card-white">
+      	  <img src="img url" alt="img_act">
+            <p> <%= activity["name"] %>
+            <p><%= activity["img url"] %></p>
+            <p><%= activity["category"] %></p>
+            <p><%= activity["city"] %></p>
+            <p><%= activity["duration"] %></p>
+            <p><%= activity["number of participants"] %></p>
+            <p><%= activity["price (in EUR)"] %></p>
 
-    <% end %>
-
+        <% end %>
+        </div>
   </body>
 </html>
