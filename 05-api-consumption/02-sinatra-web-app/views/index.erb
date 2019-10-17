@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Giloo_Team Building</title>
+    <meta name="description" content="Giloo_Team building activities">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Team Building - Activities</title>
-    <%= stylesheet '/style.css' %>
+    <script src="https://kit.fontawesome.com/1c8ebe869a.js" crossorigin="anonymous"></script>
+    <%# <link rel="stylesheet" type="text/css" href="/css/style.css"> %>
+    <%= stylesheet "css/style.css" %>
   </head>
+
   <body>
-    <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+    <div class="banner">
+      <div class="container">
+        <h1>Giloo's Team building activities</h1>
+        <p>develop your collective intelligence</p>
+      </div>
+    </div>
+
+    <div class="filter">
+      <a href="/" class="btn-black">All</a>
+      <a href="/?location=Paris"  class="btn-black">Paris</a>
+      <a href="/?location=Nantes" class="btn-black">Nantes</a>
+    </div>
+
+
+    <div class="cards">
+      <% @activities.each do |activity| %>
+        <div class="card">
+          <div class="cardheader">
+            <h1><%= activity["name"] %></h1>
+            <p class="category"><%= activity["category"] %></p>
+          </div>
+          <div class="activity-picture" style="background-image: url('<%= activity["photo_url"] %>')"></div>
+          <div>
+            <ul class="list-inline">
+              <li><%= activity["city"] %></li>
+              <li><%= activity["price"] %> €</li>
+            </ul>
+          </div>
+          <div class="position">
+            <ul class="list-vertical">
+              <li><i class="fas fa-user-friends"></i>   <%= activity["participants_count"] %> participants</li>
+              <li><i class="fas fa-hourglass-half"></i>      <%= activity["duration"] %>  min</li>
+            </ul>
+            <a href="/activities/<%= activity["id"]%>" class="btn-orange">Let's play</a>
+          </div>
+        </div>
+      <%end%>
+
+    </div>
   </body>
-</html>
+ </html>

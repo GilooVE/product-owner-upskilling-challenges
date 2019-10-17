@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giloo_Team Building</title>
+    <meta name="description" content="Giloo_Team building activities">
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/1c8ebe869a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  </head>
+
+  <body>
+
+   <div class="banner_activity">
+    <div class="container_acitivity">
+       <h1><%= @activity["name"] %></h1>
+       <p class="category"><%= @activity["category"] %></p>
+       <div class="activity-picture" style="background-image: url('<%= @activity["photo_url"] %>')"></div>
+    </div>
+
+    <div class="cards">
+      <% @activity %>
+        <div class="card">
+          <div class="cardheader">
+            <p class="category"><%= @activity["category"] %></p>
+          </div>
+
+          <div>
+            <ul class="list-inline">
+              <li><%= @activity["city"] %></li>
+              <li><%= @activity["price"] %> €</li>
+            </ul>
+          </div>
+          <div class="position">
+            <ul class="list-vertical">
+              <li><i class="fas fa-user-friends"></i>   <%= @activity["number of participants"] %>  participants</li>
+              <li><i class="fas fa-hourglass-half"></i>      <%= @activity["duration"] %>  min</li>
+            </ul>
+            <a href="#" class="btn-orange">Book a session</a>
+          </div>
+        </div>
+
+    </div>
+
+  </body>
+ </html>

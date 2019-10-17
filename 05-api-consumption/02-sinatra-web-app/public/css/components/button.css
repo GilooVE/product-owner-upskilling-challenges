@@ -1,0 +1,33 @@
+.btn-orange {
+  background-color: white;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.btn-orange:hover {
+  background-color: #FFC001;
+  color: white;
+  border: 1px solid #FFC001;
+}
+
+.btn-black {
+  background-color: black;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+  font-weight: lighter;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.btn-black:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}

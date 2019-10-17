@@ -1,0 +1,17 @@
+/* Add any styling you want */
+
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans|Roboto&display=swap");
+@import url("/css/components/banner.css");
+@import url("/css/components/container.css");
+@import url("/css/components/activity-picture.css");
+@import url("/css/components/button.css");
+@import url("/css/components/card.css");
+
+body {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 18px;
+}
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
