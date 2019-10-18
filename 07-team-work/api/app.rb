@@ -63,36 +63,19 @@ namespace "/v2" do
 
     DB.execute(query)
     json "favorite" => {"team_id"=> params["team_id"], "activity_id"=> params["activity_id"]}
-end
-
-# get "/favorites" do
-
-#   if params["activity_id"] == nil
-#     query = "SELECT * FROM team_favorite_activities "
-#   else
-#     query = "SELECT * FROM team_favorite_activities WHERE activity_id = #{params["activity_id"]}"
-#   end
-
-# favorites = DB.execute(query)
-# json "favorites" => favorites
-
-# end
-
-  post "/favorites" do
-  if params["team_id"] != nil && params["activity_id"] != nil
-      query = "INSERT INTO team_favorite_activities (team_id,activity_id) VALUES (#{params["team_id"]},#{params["activity_id"]})"
   end
 
-  DB.execute(query)
-  json "favorite" => {"team_id"=> params["team_id"], "activity_id"=> params["activity_id"]}
+  delete "/favorites" do
+    query = "DELETE FROM team_favorite_activities WHERE team_id = #{params["team_id"]}"
+    DB.execute(query)
+    json "favorite" => {"team_id"=> params["team_id"]}
   end
+
 
   get "/teams" do
     query = "SELECT * FROM teams "
-
     teams = DB.execute(query)
-    json "teams" => teams
-
+  json "teams" => teams
   end
 
   get "/activities" do
