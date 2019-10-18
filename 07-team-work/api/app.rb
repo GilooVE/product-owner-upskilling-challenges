@@ -35,11 +35,21 @@ namespace "/v2" do
 
   get "/favorites" do
 
-      if params["activity_id"] == nil
-        query = "SELECT * FROM team_favorite_activities "
-      else
-        query = "SELECT * FROM team_favorite_activities WHERE activity_id = #{params["activity_id"]}"
-      end
+    params_table = []
+    query = "SELECT * FROM team_favorite_activities"
+
+    if params["activity_id"] != nil
+      params_table << "activity_id = '" + params["activity_id"]+"'"
+    end
+
+    if params["team_id"] != nil
+      params_table << "team_id = '" + params["team_id"]+"'"
+    end
+
+    if params["team_id"] != nil || params["activity_id"] != nil
+      query = query + " WHERE "
+      query = query + params_table.join(" AND ")
+    end
 
     favorites = DB.execute(query)
     json "favorites" => favorites
@@ -55,6 +65,27 @@ namespace "/v2" do
     json "favorite" => {"team_id"=> params["team_id"], "activity_id"=> params["activity_id"]}
 end
 
+# get "/favorites" do
+
+#   if params["activity_id"] == nil
+#     query = "SELECT * FROM team_favorite_activities "
+#   else
+#     query = "SELECT * FROM team_favorite_activities WHERE activity_id = #{params["activity_id"]}"
+#   end
+
+# favorites = DB.execute(query)
+# json "favorites" => favorites
+
+# end
+
+  post "/favorites" do
+  if params["team_id"] != nil && params["activity_id"] != nil
+      query = "INSERT INTO team_favorite_activities (team_id,activity_id) VALUES (#{params["team_id"]},#{params["activity_id"]})"
+  end
+
+  DB.execute(query)
+  json "favorite" => {"team_id"=> params["team_id"], "activity_id"=> params["activity_id"]}
+  end
 
   get "/teams" do
     query = "SELECT * FROM teams "
@@ -63,11 +94,6 @@ end
     json "teams" => teams
 
   end
-
-
-
-
-
 
   get "/activities" do
     # [POSSIBLE QUERIES]
