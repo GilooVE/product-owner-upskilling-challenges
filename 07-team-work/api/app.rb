@@ -57,12 +57,14 @@ namespace "/v2" do
   end
 
   post "/favorites" do
+
     if params["team_id"] != nil && params["activity_id"] != nil
         query = "INSERT INTO team_favorite_activities (team_id,activity_id) VALUES (#{params["team_id"]},#{params["activity_id"]})"
+        DB.execute(query)
+        json "favorite" => {"team_id"=> params["team_id"], "activity_id"=> params["activity_id"]}
     end
 
-    DB.execute(query)
-    json "favorite" => {"team_id"=> params["team_id"], "activity_id"=> params["activity_id"]}
+
   end
 
   delete "/favorites" do
