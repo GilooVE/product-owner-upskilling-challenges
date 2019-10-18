@@ -44,7 +44,7 @@ get "/" do
 
     {"name" => "Cocktail academy",
       "category" => "Food",
-      "city" => "Bordeaux",
+      "city" => "Paris",
       "img" => "https://unsplash.com/photos/i7Vy81pnZCI",
       "duration" => 60,
       "number of participants" => 8,

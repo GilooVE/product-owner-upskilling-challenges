@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <script src="https://kit.fontawesome.com/1c8ebe869a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--<%= stylesheet '/style.css' %>-->
   </head>
 
   <body>
@@ -27,13 +28,13 @@
           <div>
             <ul class="list-inline">
               <li><%= activity["city"] %></li>
-              <li><%= activity["price"] %></li>
+              <li><%= activity["price"] %> €</li>
             </ul>
           </div>
           <div class="position">
             <ul class="list-vertical">
-              <li><i class="fas fa-user-friends"></i><%= activity["number of participants"] %></li>
-              <li><i class="fas fa-hourglass-half"></i><%= activity["duration"] %></li>
+              <li><i class="fas fa-user-friends"></i>   <%= activity["number of participants"] %>  participants</li>
+              <li><i class="fas fa-hourglass-half"></i>      <%= activity["duration"] %>  min</li>
             </ul>
             <a href="#" class="btn-orange">Let's play</a>
           </div>
